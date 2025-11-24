@@ -1,0 +1,247 @@
+/* Estilos do componente microbit-control */
+#container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  position: relative;
+  touch-action: manipulation;
+}
+
+/* Menu lateral */
+#menu_left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+#robotShow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+#robotShow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+#robotShow:active {
+  transform: scale(0.95);
+}
+
+#robotShow.robotShow_connected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+}
+
+#robotShow svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Controles principais */
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.controler {
+  color: white;
+}
+
+.slider_label {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* Sliders */
+input[type="range"] {
+  width: 300px;
+  height: 8px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Tabela de controles direcionais */
+.tg {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.tg-yw4l {
+  padding: 0;
+}
+
+/* Botões de controle */
+.ctl-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.ctl-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.ctl-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95);
+}
+
+.ctl-btn svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Logos e links */
+#lofi_logo {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+#lofi_logo:hover {
+  opacity: 1;
+}
+
+#lofi_logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+#info {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+#info:hover {
+  opacity: 1;
+}
+
+#info svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #controls {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  input[type="range"] {
+    width: 200px;
+  }
+
+  .ctl-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  #robotShow {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Animação para mensagem de erro */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

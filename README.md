@@ -116,7 +116,7 @@ Os arquivos estarão em `dist/` prontos para deploy.
 | Joystick | Comando | Exemplo | Descrição |
 |----------|---------|---------|-----------|
 | Esquerdo | `move:X,Y` | `move:75,100` | Movimento (X, Y) |
-| Direito | `rotate:X,:Y` | `rotate:-50,80` | Rotação (X, Y) |
+| Direito | `rotate:X,Y` | `rotate:-50,80` | Rotação (X, Y) |
 
 **Valores**: -100 a 100 (normalizados)
 

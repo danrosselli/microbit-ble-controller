@@ -44,7 +44,7 @@ bun install
 bun run dev
 ```
 
-O servidor estará disponível em `https://localhost:5174`
+O servidor estará disponível em `https://localhost:5173`
 
 > ⚠️ **Nota**: Você precisará aceitar o certificado SSL auto-assinado no navegador (Avançado → Ir para localhost)
 
@@ -130,27 +130,6 @@ Os arquivos estarão em `dist/` prontos para deploy.
 - **[Web Bluetooth API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API)** - Comunicação BLE
 - **Pointer Events** - Suporte unificado touch/mouse/pen
 - **Service Worker** - Para PWA offline
-
-## 📁 Estrutura do Projeto
-
-```
-microbit-ble-controller/
-├── public/
-│   ├── icon.svg              # Ícone SVG customizado
-│   ├── manifest.json         # Manifesto PWA
-│   └── sw.js                 # Service Worker
-├── src/
-│   ├── components/
-│   │   └── microbit-control.js    # Componente principal com joysticks
-│   ├── services/
-│   │   └── bluetooth.js           # Serviço Web Bluetooth
-│   ├── main.js                    # Entry point
-│   └── style.css                  # Estilos globais
-├── index.html                     # HTML principal
-├── vite.config.js                 # Configuração Vite + SSL
-├── package.json
-└── bun.lock
-```
 
 ## 🔧 Configuração do Micro:bit
 

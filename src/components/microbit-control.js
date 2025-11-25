@@ -72,8 +72,7 @@ function handleJoystickMove(host, side, event) {
     pixelY: position.pixelY
   };
 
-  // Enviar comando
-  sendJoystickCommand(side, position.x, position.y);
+  // Comandos são enviados automaticamente pelo setInterval
 }
 
 // Handler para soltar joystick
@@ -82,29 +81,35 @@ function handleJoystickEnd(host, side, event) {
 
   host[joystickKey] = { x: 0, y: 0, pixelX: 0, pixelY: 0, active: false };
 
-  // Enviar comando de parada
-  sendJoystickCommand(side, 0, 0);
+  // Comando de parada (0,0) será enviado automaticamente pelo setInterval
 
   if (event && event.pointerId != null) {
     event.target.releasePointerCapture?.(event.pointerId);
   }
 }
 
-// Enviar comandos baseados no joystick
-function sendJoystickCommand(side, x, y) {
-  if (side === 'left') {
-    // Joystick esquerdo: movimento
-    sendCommand(`move:${x},${y}`);
-  } else {
-    // Joystick direito: rotação/velocidade
-    sendCommand(`rotate:${x},speed:${y}`);
-  }
-}
-
 export default define({
   tag: "microbit-control",
 
-  connected: false,
+  connected: {
+    value: false,
+    connect: (host) => {
+      // Iniciar envio periódico de comandos quando conectado
+      const intervalId = setInterval(() => {
+        if (host.connected) {
+          // Enviar estado atual dos joysticks a cada 100ms
+          const left = host.leftJoystick;
+          const right = host.rightJoystick;
+
+          sendCommand(`move:${left.x},${left.y}`);
+          sendCommand(`rotate:${right.x},${right.y}`);
+        }
+      }, 100); // 100ms = 10 comandos por segundo
+
+      // Cleanup: parar interval quando componente for destruído
+      return () => clearInterval(intervalId);
+    }
+  },
   errorMessage: '',
   isPortrait: {
     value: window.innerHeight > window.innerWidth,

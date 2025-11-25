@@ -102,9 +102,9 @@ Os arquivos estarão em `dist/` prontos para deploy.
 - ⬅️ **Esquerda** = X negativo
 
 **Joystick Direito (ROTAÇÃO)**:
-- Arraste para controlar rotação/velocidade
-- **Horizontal** = Rotação
-- **Vertical** = Velocidade
+- Arraste para controlar rotação
+- **Horizontal** = Rotação X
+- **Vertical** = Rotação Y
 
 ### 3. Monitorar Comandos
 
@@ -115,8 +115,8 @@ Os arquivos estarão em `dist/` prontos para deploy.
 
 | Joystick | Comando | Exemplo | Descrição |
 |----------|---------|---------|-----------|
-| Esquerdo | `move:X,Y` | `move:75,100` | Movimento (X: lateral, Y: frente/trás) |
-| Direito | `rotate:X,speed:Y` | `rotate:-50,80` | Rotação (X) e velocidade (Y) |
+| Esquerdo | `move:X,Y` | `move:75,100` | Movimento (X, Y) |
+| Direito | `rotate:X,:Y` | `rotate:-50,80` | Rotação (X, Y) |
 
 **Valores**: -100 a 100 (normalizados)
 
@@ -136,8 +136,6 @@ Os arquivos estarão em `dist/` prontos para deploy.
 ```
 microbit-ble-controller/
 ├── public/
-│   ├── icon-192.png          # Ícone PWA 192x192
-│   ├── icon-512.png          # Ícone PWA 512x512
 │   ├── icon.svg              # Ícone SVG customizado
 │   ├── manifest.json         # Manifesto PWA
 │   └── sw.js                 # Service Worker
@@ -159,7 +157,7 @@ microbit-ble-controller/
 Para usar este controlador, seu micro:bit precisa:
 
 1. Ter o **serviço UART Bluetooth** habilitado
-2. Escutar comandos no formato `move:X,Y` e `rotate:X,speed:Y`
+2. Escutar comandos no formato `move:X,Y` e `rotate:X,Y`
 3. UUID do serviço UART: `6e400001-b5a3-f393-e0a9-e50e24dcca9e`
 
 Exemplo de código MakeCode/MicroPython disponível na documentação do micro:bit.

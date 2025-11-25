@@ -22,9 +22,8 @@ Este código permite que o micro:bit:
 1. Acesse [makecode.microbit.org](https://makecode.microbit.org)
 2. Crie um novo projeto
 3. Clique em "JavaScript" no topo
-4. Selecione "TypeScript" 
-5. Cole o código de [microbit-ble-controller.makecode.js](microbit-ble-controller.makecode.js)
-6. Ou importe como blocos usando o editor visual
+4. Cole o código de [microbit-ble-controller.makecode.js](microbit-ble-controller.makecode.js)
+5. Ou importe como blocos usando o editor visual
 
 ### 2. Adicionar Extensões Necessárias
 
@@ -53,9 +52,11 @@ Esta etapa é **obrigatória** para que o micro:bit aceite conexões do controla
 
 ### 5. Emparelhar Bluetooth
 
-1. Pressione os botões A+B do micro:bit simultaneamente
-2. Siga as instruções no display
-3. Emparelhe com o controlador web
+1. Ligue a micro:bit e aguarde a animação de losangos
+2. No seu aplicativo do controller, clique no botão de conectar
+3. Selecione a micro:bit no seu celular e clique em parear
+4. Uma carinha feliz deve aparecer na micro:bit
+5. Pronto para controlar!
 
 ## 📡 Comandos Recebidos
 

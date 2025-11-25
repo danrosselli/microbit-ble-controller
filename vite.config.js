@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
 export default defineConfig({
+  base: './', // Usar caminhos relativos no build (para funcionar em subpastas)
   plugins: [
     basicSsl() // Habilita HTTPS para Web Bluetooth
   ],
